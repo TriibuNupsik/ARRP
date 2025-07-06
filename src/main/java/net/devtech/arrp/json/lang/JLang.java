@@ -1,12 +1,10 @@
 package net.devtech.arrp.json.lang;
 
 import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -116,21 +114,7 @@ public class JLang implements Cloneable {
         return this.object(Registries.ENTITY_TYPE, "entity_type", type, name);
     }
 
-    /**
-     * adds a translation key for an entity, respects {@link Enchantment#getTranslationKey()}
-     */
-    public JLang enchantmentRespect(Enchantment enchantment, String name) {
-        this.lang.put(enchantment.getTranslationKey(), name);
-        return this;
-    }
 
-    /**
-     * @see JLang#enchantmentRespect(Enchantment, String) uses the {@link Enchantment#getTranslationKey()}}
-     */
-    @Deprecated
-    public JLang enchantment(Enchantment enchantment, String name) {
-        return this.object(Registries.ENCHANTMENT, "enchantment", enchantment, name);
-    }
 
     public JLang item(Identifier item, String name) {
         return this.object("item", item, name);
